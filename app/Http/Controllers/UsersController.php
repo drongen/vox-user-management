@@ -9,7 +9,7 @@ use App\Http\Requests;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function add()
     {
         return view('users.add');
     }
