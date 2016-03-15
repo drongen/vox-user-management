@@ -31,6 +31,10 @@ Route::get('/admin', function () {
     return view ('admin/index');
 });
 
+Route::get('/validation', function () {
+    return view ('validation');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
