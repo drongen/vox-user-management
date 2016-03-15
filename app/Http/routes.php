@@ -12,7 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    $name = "Aleks";
+    $people = [
+        "Aleks" => "Developer",
+        "Tina" => "Teacher",
+        "Bob" => "Chef"
+    ];
+    $user = (object)['name' => 'Aleksandar', 'surname' => 'Tufekciev', 'country' => 'Maceodnia'];
+
+    return view('index', compact('name', 'people', 'user'));
+});
+
+Route::get('/add-user', function () {
+    return view ('users/add');
+});
+
+Route::get('/admin', function () {
+    return view ('admin/index');
 });
 
 /*
