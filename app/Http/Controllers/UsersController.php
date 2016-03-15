@@ -38,6 +38,11 @@ class UsersController extends Controller
 
     public function get_users()
     {
-        return \Datatables::queryBuilder(\DB::table('users'))->make(true);
+        return \Datatables::queryBuilder(\DB::table('users'))
+            ->addColumn('country', 'Macedonia')
+            ->editColumn('name', function($data) {
+                return strtoupper($data->name);
+            })
+            ->make(true);
     }
 }

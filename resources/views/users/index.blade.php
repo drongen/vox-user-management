@@ -8,7 +8,16 @@
 
         <div class="col-xs-12">
 
-            <table id="users"></table>
+            <table id="users" class="display">
+                <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Password</td>
+                    <td>Country</td>
+                </tr>
+                </thead>
+            </table>
 
         </div>
 
@@ -16,5 +25,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ URL::asset('js/dt_custom.js') }}"></script>
+<script src="{{ URL::asset('js/dt_custom.js') }}"></script>
 @endpush
