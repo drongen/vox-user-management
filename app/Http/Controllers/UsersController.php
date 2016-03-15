@@ -9,6 +9,11 @@ use App\Http\Requests;
 
 class UsersController extends Controller
 {
+    public function index()
+    {
+        return view('users.index');
+    }
+
     public function add()
     {
         return view('users.add');
@@ -29,5 +34,10 @@ class UsersController extends Controller
     public function update_user()
     {
         return view('users.add');
+    }
+
+    public function get_users()
+    {
+        return \Datatables::queryBuilder(\DB::table('users'))->make(true);
     }
 }
