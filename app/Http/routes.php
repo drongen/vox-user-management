@@ -47,5 +47,8 @@ Route::get('/validation', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/user/add', 'UsersController@index');
+    Route::get('/user/update/{id}', 'UsersController@update');
+    Route::post('/user/store', 'UsersController@store');
+    Route::post('/user/update_user/{id}', 'UsersController@update_user');
 });
