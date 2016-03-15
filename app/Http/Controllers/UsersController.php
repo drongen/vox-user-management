@@ -26,8 +26,11 @@ class UsersController extends Controller
         return view('users.add');
     }
 
-    public function update_user()
+    public function update_user(Requests\UserUpdate $request)
     {
+        $user = User::find($request->id);
+        $user->update($request->all());
+
         return view('users.add');
     }
 }
