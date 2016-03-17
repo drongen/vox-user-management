@@ -1,56 +1,27 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', function () {
-    $name = "Aleks";
-    $people = [
-        "Aleks" => "Developer",
-        "Tina" => "Teacher",
-        "Bob" => "Chef"
-    ];
-    $user = (object)['name' => 'Aleksandar', 'surname' => 'Tufekciev', 'country' => 'Maceodnia'];
-
-    return view('index', compact('name', 'people', 'user'));
-});
-
-Route::get('/add-user', function () {
-    return view ('users/add');
-});
-
-Route::get('/admin', function () {
-    return view ('admin/index');
-});
-
-Route::get('/validation', function () {
-    return view ('validation');
-});
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
-
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/user', 'UsersController@index');
-    Route::get('/user/add', 'UsersController@add');
-    Route::get('/user/update/{id}', 'UsersController@update');
-    Route::post('/user/store', 'UsersController@store');
-    Route::post('/user/update_user/{id}', 'UsersController@update_user');
-    Route::get('/user/get_users/', 'UsersController@get_users');
+
+    Route::get('/', function(){
+        return view('index');
+    });
+
+    Route::group(['middleware' => ['role:super_admin']], function () {
+        Route::get('/user', 'UsersController@index');
+        Route::get('/user/add', 'UsersController@add');
+        Route::get('/user/update/{id}', 'UsersController@update');
+        Route::post('/user/store', 'UsersController@store');
+        Route::post('/user/update_user/{id}', 'UsersController@update_user');
+        Route::get('/user/get_users/', 'UsersController@get_users');
+    });
+
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "960880978427d6c58057433e5d68de58",
-    "content-hash": "f2e74074f9e1cb56843c9d9c3cf65ec7",
+    "hash": "594fb03bddc79f468f8ec8f3b1301ccd",
+    "content-hash": "5d766a9dec0ed2d1bf51f7371e1977c5",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2196,16 +2196,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v6.9.1",
+            "version": "v6.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "89c4c41ca02aeed18dac98fb1128f2f03ff17e46"
+                "reference": "1504b8d9e1f51cf00676fe957c1777c221d1e872"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/89c4c41ca02aeed18dac98fb1128f2f03ff17e46",
-                "reference": "89c4c41ca02aeed18dac98fb1128f2f03ff17e46",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/1504b8d9e1f51cf00676fe957c1777c221d1e872",
+                "reference": "1504b8d9e1f51cf00676fe957c1777c221d1e872",
                 "shasum": ""
             },
             "require": {
@@ -2249,7 +2249,75 @@
                 "laravel4",
                 "laravel5"
             ],
-            "time": "2016-03-12 09:48:43"
+            "time": "2016-03-16 22:57:09"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "5.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469",
+                "reference": "e2ed11f29f418364cb7c9b5c7ee29ec2b4b15469",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2016-03-04 18:05:30"
         }
     ],
     "packages-dev": [
@@ -3427,7 +3495,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "zizaco/entrust": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

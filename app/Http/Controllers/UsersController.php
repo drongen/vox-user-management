@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -27,21 +28,23 @@ class UsersController extends Controller
 
     public function store(Requests\UserCreate $request)
     {
-        User::create($request->all());
-        return view('users.add');
+        User::create($request->all())->attachRole(Role::USER);
+        return redirect('user/');
     }
 
     public function update_user()
     {
-        return view('users.add');
+        return redirect('user/');
     }
 
     public function get_users()
     {
-        return \Datatables::queryBuilder(\DB::table('users'))
+        return \Datatables::of(User::with('roles')->get())
             ->addColumn('country', 'Macedonia')
             ->editColumn('name', function($data) {
                 return strtoupper($data->name);
+            })->editColumn('role', function($data) {
+                return ($data->roles->first()->display_name);
             })
             ->make(true);
     }

@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="page-header text-center">
@@ -13,7 +13,7 @@
                 <tr>
                     <td>Name</td>
                     <td>Email</td>
-                    <td>Password</td>
+                    <td>Role</td>
                     <td>Country</td>
                 </tr>
                 </thead>
