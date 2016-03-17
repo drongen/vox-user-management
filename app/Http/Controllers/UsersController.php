@@ -22,19 +22,22 @@ class UsersController extends Controller
 
     public function update($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         return view('users.update', compact('user'));
     }
 
     public function store(Requests\UserCreate $request)
     {
         User::create($request->all())->attachRole(Role::USER);
-        return redirect('user/');
+        return redirect('/user');
     }
 
-    public function update_user()
+    public function update_user(Requests\UserUpdate $request)
     {
-        return redirect('user/');
+        $user = User::findOrFail($request->id);
+        $user->update($request->all());
+
+        return redirect('/user');
     }
 
     public function get_users()

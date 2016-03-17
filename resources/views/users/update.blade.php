@@ -13,19 +13,21 @@
                 <h2 class="form-signin-heading">Add user</h2>
                 <div class="form-group">
                     <label for="name">Name </label>
-                    <input type="text" id="name" class="form-control" placeholder="Name" value="{{ $user->name }}" autofocus>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Name" value="{{ $user->name }}" autofocus>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ $user->email }}">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" value="{{ $user->email }}">
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
 
                 </div>
+
+                <input type="hidden" name="id" id="id" value="{{ $user->id }}">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Update User</button>
             </form>
         </div>

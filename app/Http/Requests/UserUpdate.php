@@ -27,7 +27,7 @@ class UserUpdate extends Request
             'id' => 'required',
             'name' => 'required|min:5',
             'email' => 'required|email',
-            'password' => 'required|max:50',
+            'password' => 'max:50',
         ];
     }
 }
