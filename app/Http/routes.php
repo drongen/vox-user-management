@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function(){
+    Route::get('/', function () {
         return view('index');
     });
 
@@ -18,11 +18,11 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
-    Route::get('/home/user-cars/{user}', 'HomeController@list_cars');
+    Route::get('/home/user-cars/{user}',
+        ['uses' => 'HomeController@list_cars']);
+
+    Route::get('/home/admin',
+        ['uses' => 'HomeController@admin', 'middleware' => 'admin']);
 });
 
-//Route::group(['middleware' => 'web'], function () {
-//    Route::auth();
-//
-//    Route::get('/home', 'HomeController@index');
-//});
+

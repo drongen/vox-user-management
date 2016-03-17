@@ -36,4 +36,9 @@ class HomeController extends Controller
 
         return view('list_cars', ['user' => $user, 'cars' => $cars]);
     }
+
+    public function admin()
+    {
+        return view('admin');
+    }
 }

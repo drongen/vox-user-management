@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class, 20)->create()->each(function($u){
-            $u->attachRole(3);
+            $u->attachRole(rand(1,3));
         });
     }
 }

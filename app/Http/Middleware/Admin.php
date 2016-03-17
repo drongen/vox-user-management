@@ -16,6 +16,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+//        dd($request->user()->roles->first()->name);
+        if ($request->user()->roles->first()->name == 'super_admin' || $request->user()->roles->first()->name == 'admin') {
+            return $next($request);
+        }
+        
+        return redirect('/home');
+
     }
 }
