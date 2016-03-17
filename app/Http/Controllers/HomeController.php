@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cars = Auth::user()->cars;
+        return view('home', ['cars' => $cars]);
+    }
+
+    public function list_cars(User $user)
+    {
+        $cars = $user->cars;
+
+        return view('list_cars', ['user' => $user, 'cars' => $cars]);
     }
 }
