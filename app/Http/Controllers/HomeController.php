@@ -30,8 +30,9 @@ class HomeController extends Controller
         return view('home', ['cars' => $cars]);
     }
 
-    public function list_cars(User $user)
+    public function list_cars($id)
     {
+        $user = User::findOrFail($id);
         $cars = $user->cars;
 
         return view('list_cars', ['user' => $user, 'cars' => $cars]);
