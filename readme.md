@@ -8,6 +8,5 @@
 - composer install (To get all external packages)
 - php artisan key:get
 - php artisan migrate:refresh --seed (Run all migrations and populate DB with starting data)
-- 
 
 
