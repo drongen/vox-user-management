@@ -19,7 +19,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home', 'HomeController@index');
     Route::get('/home/user-cars/{id}',
-        ['uses' => 'HomeController@list_cars']);
+        ['uses' => 'HomeController@list_cars', 'middleware' => 'canAccessCarList']);
 
     Route::get('/home/admin',
         ['uses' => 'HomeController@admin', 'middleware' => 'admin']);

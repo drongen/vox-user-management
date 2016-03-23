@@ -39,9 +39,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}">Laravel</a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -49,10 +47,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/home/user-cars/1') }}">User Cars</a></li>
+                    @if(! Auth::guest() && Auth::user()->can('create-user'))
                     <li><a href="{{ url('home/admin') }}">Admin</a></li>
+                    @endif
                 </ul>
 
-                <!-- Right Side Of Navbar -->
+       `         <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
@@ -73,6 +73,8 @@
             </div>
         </div>
     </nav>
+
+    @include('parts.error_message')
 
     @yield('content')
 

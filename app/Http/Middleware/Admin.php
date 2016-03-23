@@ -16,12 +16,11 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-//        dd($request->user()->roles->first()->name);
-        if ($request->user()->roles->first()->name == 'super_admin' || $request->user()->roles->first()->name == 'admin') {
+        if ($request->user()->hasRole('super-admin') || $request->user()->roles->first()->name == 'admin') {
             return $next($request);
         }
         
-        return redirect('/home');
+        return redirect('home')->with('error_message', 'You do not have access to that page!');
 
     }
 }
